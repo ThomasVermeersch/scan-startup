@@ -7,6 +7,6 @@ if [$(ls | grep startup-update) = "startup-update"]
     then cd startup-update
     git pull
 else
+    cd wd
     git clone git_repo
-    cp scan-startup/ /opt/
 fi
