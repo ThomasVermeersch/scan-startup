@@ -10,11 +10,11 @@ else
     echo "no internet detected, not updating"
 fi
 
-while [restart_counter <=1]
+while [restart_counter -lt 2]
 do
     if [$(systemctl status gvmd | grep Active | awk '{print $2}') == "inactive"]
         then $(gvm-start)
-        restart_counter = restart_counter + 1
+        $restart_counter = $restart_counter + 1
         GVMSTATE=$(systemctl status gvmd | grep Active | awk '{print $2}')
     else
         $(gvm-stop)
