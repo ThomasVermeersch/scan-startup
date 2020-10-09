@@ -2,7 +2,7 @@
 GVMSTATE=""
 restart_counter=0
 
-if [$(ping -c 1 google.com | grep loss | awk '{print $6}') -eq "0%"]
+if [$(ping -c 1 google.com | grep loss | awk '{print $6}') = '0%']
     then 
         echo "updating the gvm vulnrability tests "
         gvm-feed-update
